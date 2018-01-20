@@ -25,8 +25,7 @@ namespace AlgorithmsAndStructures
             int counter = 0;
 
             while(!currentElement.Equals(element)){
-                currentElement = sortedArray[mid];
-
+                
                 if(currentElement.CompareTo(element) < 0){
                     lo = mid;
                     mid = (hi + lo) / 2;
@@ -39,6 +38,7 @@ namespace AlgorithmsAndStructures
                 if (counter > Math.Log(sortedArray.Length))
                     return -1;
                 
+                currentElement = sortedArray[mid];
                 counter++;
             }
             return mid;
