@@ -27,7 +27,10 @@ namespace AlgorithmsAndStructures
 
         public void Clear()
         {
-            throw new NotImplementedException();
+            for (int i = 0; i < count; i++)
+            {
+                RemoveAt(i);
+            }
         }
 
         public bool Contains(T item)
@@ -62,10 +65,21 @@ namespace AlgorithmsAndStructures
             prev.NextNode = next;
             return true;
         }
+        
+        public bool RemoveAt(int index)
+        {
+            SLLNode prev = GetNode(index);
+            SLLNode next = prev.NextNode.NextNode;
+            prev.NextNode = next;
+            return true;
+        }
 
         public void CopyTo(Array array, int index)
         {
-            throw new NotImplementedException();
+            for (int i = index; i < index + count; i++)
+            {
+                array.SetValue(this[i - index], i);
+            }
         }
 
         public T this[int i]
