@@ -1,4 +1,7 @@
-﻿namespace AlgorithmsAndStructures
+﻿using System;
+using System.Net.NetworkInformation;
+
+namespace AlgorithmsAndStructures
 {
     public static class StringAlgorithms
     {
@@ -50,13 +53,18 @@
             return -1;
         }
 
+        public static int BMSearch()
+        {
+            throw new NotImplementedException("I'll do this soon");
+        }
+
         #endregion
         
         
 
         #region Helpers
 
-        public static int[] prefixKMP(string subString)
+        private static int[] prefixKMP(string subString)
         {
             int lenght = subString.Length;
             int[] prefixes = new int[lenght];
