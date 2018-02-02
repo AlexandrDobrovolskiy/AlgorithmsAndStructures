@@ -39,7 +39,7 @@ namespace AlgorithmsAndStructures
             {
                 Search(item);
             }
-            catch (ArgumentException e)
+            catch (Exception e)
             {
                 return false;
             }
@@ -63,6 +63,7 @@ namespace AlgorithmsAndStructures
             SLLNode prev = GetNode(IndexOf(item) - 1);
             SLLNode next = prev.NextNode.NextNode;
             prev.NextNode = next;
+            count--;
             return true;
         }
         
@@ -71,6 +72,7 @@ namespace AlgorithmsAndStructures
             SLLNode prev = GetNode(index);
             SLLNode next = prev.NextNode.NextNode;
             prev.NextNode = next;
+            count--;
             return true;
         }
 
@@ -175,7 +177,7 @@ namespace AlgorithmsAndStructures
         
         public IEnumerator<T> GetEnumerator()
         {
-            throw new NotImplementedException();
+            throw new NotImplementedException("It's not so simple as I'd desire");
         }
 
         IEnumerator IEnumerable.GetEnumerator()
