@@ -8,8 +8,10 @@ namespace AlgorithmsAndStructures
     {
         private int _count;
         private Node head;
-        private Node tail;
-        
+
+        public Node First => head;
+
+        public Node Last => head.Prev;
 
         public MyLinkedList()
         {
@@ -43,7 +45,13 @@ namespace AlgorithmsAndStructures
 
         public void Add(T item)
         {
-            throw new NotImplementedException();
+            Node newNode = new Node(item);
+            if(head == null)
+                InternalInsertNodeToEmptyList(newNode);
+            else
+            {
+                InternalInsertNodeBefore(head, newNode);
+            }
         }
 
         public void AddAfter(T item, int index)
@@ -84,6 +92,23 @@ namespace AlgorithmsAndStructures
         public void CopyTo(Array array, int index)
         {
             throw new NotImplementedException();
+        }
+        
+        private void InternalInsertNodeBefore(Node node, Node newNode)
+        {
+            newNode.Next = node;
+            newNode.Prev = node.Prev;
+            node.Prev.Next = newNode;
+            node.Prev = newNode;
+            ++this._count;
+        }
+
+        private void InternalInsertNodeToEmptyList(Node newNode)
+        {
+            newNode.Next = newNode;
+            newNode.Prev = newNode;
+            this.head = newNode;
+            ++this._count;
         }
 
         int ICollection.Count

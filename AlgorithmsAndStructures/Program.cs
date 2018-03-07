@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Net;
+using System.Net.Http.Headers;
 
 namespace AlgorithmsAndStructures
  {
@@ -9,8 +10,9 @@ namespace AlgorithmsAndStructures
          static void Main(string[] args)
          {
 
-             TestForSingleLinkedList.Run();
+             MyLinkedList<int> mll = new MyLinkedList<int>(new[] {1,2,3});
              
+             Console.WriteLine(mll.Last.Next.Value );
              
              int[] BSarray1 = new[] {1, 2, 3, 4, 4, 5, 13, 31, 34, 54, 77};
              string[] BSarray2 = new[] {"a", "b", "c", "d", "e", "f"};
